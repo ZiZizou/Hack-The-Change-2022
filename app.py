@@ -33,9 +33,9 @@ def edit(category):
     except Exception as e:
         return f"An Error Occured: {e}"
 
-def isRecyclable():
+def isRecyclable(barcode):
     url = "https://zeeshan-backend.herokuapp.com/isRecyclable"
-    PARAMS = {'barcode': 63721671263}
+    PARAMS = {'barcode': barcode}
     r = requests.get(url = url, params = PARAMS)
     data = r.json()
     if data['result']=='True':
