@@ -22,13 +22,17 @@ def edit(category):
 
                 if category == "non-recyclable":
                     user_Ref.document(str(8972342342)).update({"Non-Recyclable": firestore.Increment(1)}) 
-                elif category == "recyclable":
+                elif category == "recyclable-valueable":
                     user_Ref.document(str(8972342342)).update({"Recyclable-Value": firestore.Increment(1)}) 
                 elif category == "organic": 
-                    user_Ref.document(str(8972342342)).update({"Organic": firestore.Increment(100)}) 
-
+                    user_Ref.document(str(8972342342)).update({"Organic": firestore.Increment(1)}) 
+                else:
+                    user_Ref.document(str(8972342342)).update({"Organic": firestore.Increment(1)}) 
                 
     except Exception as e:
         return f"An Error Occured: {e}"
+
+def isRecyclable():
+    pass
 
 edit("organic")
