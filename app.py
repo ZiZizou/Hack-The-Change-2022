@@ -1,5 +1,6 @@
 from firebase_admin import credentials, initialize_app, firestore
 from flask import Flask, Blueprint, request, jsonify, render_template, redirect, url_for
+import requests
 
 cred = credentials.Certificate("key.json")
 initialize_app(cred)
@@ -33,6 +34,15 @@ def edit(category):
         return f"An Error Occured: {e}"
 
 def isRecyclable():
-    pass
+    url = "https://zeeshan-backend.herokuapp.com/isRecyclable"
+    PARAMS = {'barcode': 63721671263}
+    r = requests.get(url = url, params = PARAMS)
+    data = r.json()
+    if data['result']=='True':
+        return True
+    else:
+        return False
+
+
 
 edit("organic")
