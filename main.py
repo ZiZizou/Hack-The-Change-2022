@@ -14,6 +14,11 @@ if __name__ == '__main__':
 	recycle_avg = 0
 	organic_avg = 0
 	non_recycle_avg = 0
+
+    #led/transistor1 gpio setup
+    #led/transistor2 gpio setup
+    #led/transistor3 gpio setup
+    #led/transistor4 gpio setup
   
 	try:
 		while(True):
@@ -43,11 +48,13 @@ if __name__ == '__main__':
 				elif(non_recycle_avg > recycle_avg and non_recycle_avg > organic_avg):
 					print("Waste is non recyclable")
 
-
-                barcode = getBarCodes(cam_capture)
-                if(barcode=="00"):  #no barcode returned
-
-                else:   
+                barcode_result = "00"
+                barcode_counter = 0
+                while(barcode_result=="00" and barcode_counter<50):
+                    barcode_result = read_barcodes(cam_capture)
+                    barcode_counter++
+                print(barcode_result)
+                #make call to api and send barcode result
 
 
   
