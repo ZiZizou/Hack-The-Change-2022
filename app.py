@@ -34,15 +34,14 @@ def edit(category):
         return f"An Error Occured: {e}"
 
 def isRecyclable(barcode):
-    url = "https://zeeshan-backend.herokuapp.com/isRecyclable"
-    PARAMS = {'barcode': barcode}
-    r = requests.get(url = url, params = PARAMS)
+    url = "https://zeeshan-backend.herokuapp.com/isRecyclable?barcode="+barcode
+    r = requests.get(url = url)
     data = r.json()
-    if data['result']=='True':
-        return True
-    else:
-        return False
+    return data['result']
 
-
+def checkFoodData(barcode):
+    url = "https://zeeshan-backend.herokuapp.com/checkFoodData?barcode="+barcode
+    requests.get(url = url)
 
 edit("organic")
+print(isRecyclable("1312312"))
