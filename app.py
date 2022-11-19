@@ -39,6 +39,9 @@ def isRecyclable(barcode):
     data = r.json()
     return data['result']
 
+def checkFoodData(barcode):
+    url = "https://zeeshan-backend.herokuapp.com/checkFoodData?barcode="+barcode
+    requests.get(url = url)
 
 edit("organic")
 print(isRecyclable("1312312"))
