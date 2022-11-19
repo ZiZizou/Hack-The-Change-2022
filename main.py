@@ -49,6 +49,7 @@ if __name__ == '__main__':
                     barcode_counter++
                 print(barcode_result)
                 #make call to api and send barcode result
+				checkFoodData(barcode_result[1:])
 
 				if(recycle_avg > organic_avg and recycle_avg > non_recycle_avg):
 					print("Waste is recyclable")
