@@ -37,11 +37,8 @@ def isRecyclable(barcode):
     url = "https://zeeshan-backend.herokuapp.com/isRecyclable?barcode="+barcode
     r = requests.get(url = url)
     data = r.json()
-    if data['result']=='True':
-        return True
-    else:
-        return False
-
+    return data['result']
 
 
 edit("organic")
+print(isRecyclable("1312312"))
