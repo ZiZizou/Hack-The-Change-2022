@@ -3,7 +3,7 @@ from pathlib import Path
 
 def loadClassifier():
     model_path = Path('./models')
-    learn = load_learner(model_path/'waste_classifier.pkl')
+    learn = load_learner('./models/waste_class_model.pkl')
     return learn
 
 def predict(image, classifier):
